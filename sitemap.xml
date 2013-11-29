@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://www.alexbaban.com/blog/2013/11/29/hello-world/</loc>
+        <lastmod>2013-11-29T09:22:30-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbaban.com/blog/archives/</loc>
+        <lastmod>2013-11-29T09:22:30-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbaban.com/</loc>
+        <lastmod>2013-11-29T09:22:30-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbaban.com/robots.txt</loc>
+        <lastmod>2013-11-29T09:11:55-08:00</lastmod>
+    </url>
+</urlset>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[ALEX BABAN]]></title>
+  <link href="http://www.alexbaban.com/atom.xml" rel="self"/>
+  <link href="http://www.alexbaban.com/"/>
+  <updated>2013-11-29T10:13:23-08:00</updated>
+  <id>http://www.alexbaban.com/</id>
+  <author>
+    <name><![CDATA[Alex Baban]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://www.alexbaban.com/blog/2013/11/29/hello-world/"/>
+    <updated>2013-11-29T09:22:30-08:00</updated>
+    <id>http://www.alexbaban.com/blog/2013/11/29/hello-world</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
