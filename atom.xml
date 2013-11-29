@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2013-11-29T10:13:23-08:00</updated>
+  <updated>2013-11-29T10:53:05-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.alexbaban.com/blog/2013/11/29/hello-world/"/>
     <updated>2013-11-29T09:22:30-08:00</updated>
     <id>http://www.alexbaban.com/blog/2013/11/29/hello-world</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>That&rsquo;s all for now.</p>
 ]]></content>
   </entry>
   
