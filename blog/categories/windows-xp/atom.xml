@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Windows XP | ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/blog/categories/windows-xp/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2013-12-05T15:14:33-08:00</updated>
+  <updated>2013-12-05T15:23:01-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Copy as Path for Windows XP and Above]]></title>
+    <title type="html"><![CDATA[Copy as Path for Windows XP or Later]]></title>
     <link href="http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-and-above/"/>
     <updated>2013-12-05T12:46:42-08:00</updated>
     <id>http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-and-above</id>
@@ -61,7 +61,11 @@ End</code></pre></noscript></div>
 
 <h2>Build CopyPath from source code</h2>
 
+<p>To be continued&hellip;</p>
+
 <h2>Install CopyPath</h2>
+
+<p>To be continued&hellip;</p>
 ]]></content>
   </entry>
   
