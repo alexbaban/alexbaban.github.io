@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[ALEX BABAN]]></title>
-  <link href="http://www.alexbaban.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: PureBasic | ALEX BABAN]]></title>
+  <link href="http://www.alexbaban.com/blog/categories/purebasic/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
   <updated>2013-12-05T14:07:43-08:00</updated>
   <id>http://www.alexbaban.com/</id>
@@ -25,15 +25,6 @@
 <h2>CopyPath written in PureBasic</h2>
 
 <p>PureBasic is a native 32-bit and 64-bit programming language based on established BASIC rules. The key features of PureBasic are portability (Windows, Linux and MacOS X are currently supported), the production of very fast and highly optimized executables and, of course, the very simple BASIC syntax.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello World]]></title>
-    <link href="http://www.alexbaban.com/blog/2013/11/29/hello-world/"/>
-    <updated>2013-11-29T09:22:30-08:00</updated>
-    <id>http://www.alexbaban.com/blog/2013/11/29/hello-world</id>
-    <content type="html"><![CDATA[<p>That&rsquo;s all for now. Test OK.</p>
 ]]></content>
   </entry>
   
