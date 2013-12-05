@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Windows XP | ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/blog/categories/windows-xp/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2013-12-05T15:23:01-08:00</updated>
+  <updated>2013-12-05T15:26:05-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Copy as Path for Windows XP or Later]]></title>
-    <link href="http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-and-above/"/>
+    <link href="http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-or-later/"/>
     <updated>2013-12-05T12:46:42-08:00</updated>
-    <id>http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-and-above</id>
+    <id>http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-or-later</id>
     <content type="html"><![CDATA[<p>Many times, during my work, I need to type or paste the path of a folder or file. On Windows 7 if you &ldquo;Shift + Right-Click&rdquo; on a file or folder, you get the &ldquo;Copy as path&rdquo; option, which copies to the clipboard the complete path of the folder or file. The path is copied surrounded by double quotes. Windows XP (yes, I still use Windows XP, mostly for testing) does not have &ldquo;Copy as path&rdquo;, also on Windows 7 many times I need the path without the double quotes.</p>
 
 <p>I&rsquo;ve decided to write my own small program to add &ldquo;Copy as path&rdquo; options to Windows XP and also use it on Windows 7 to get the path when I don&rsquo;t need the double quotes.</p>
