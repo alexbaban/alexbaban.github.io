@@ -4,7 +4,7 @@
   <title><![CDATA[Category: LiveReloadX | ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/blog/categories/livereloadx/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2013-12-09T23:22:38-08:00</updated>
+  <updated>2013-12-10T00:10:05-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -39,7 +39,23 @@
 
 <p>Below is my screencast showing LiveReload, LiveReloadX on Windows.</p>
 
-<p><video width='800' height='600' preload='none' controls poster=''><source src='https://www.dropbox.com/s/r6vlaupj3nlf295/2013-12-09_1737.swf">https://www.dropbox.com/s/r6vlaupj3nlf295/2013-12-09_1737.swf</a>' ></video></p>
+<pre>
+<!-- copy and paste. Modify height and width if desired. -->
+ <object id="scPlayer" width="745" height="600" type="application/x-shockwave-flash" data="http://content.screencast.com/users/alexbaban/folders/Default/media/167bebcf-8584-44ce-8d12-a6a54854b3b9/bootstrap.swf" >
+ <param name="movie" value="http://content.screencast.com/users/alexbaban/folders/Default/media/167bebcf-8584-44ce-8d12-a6a54854b3b9/bootstrap.swf" />
+ <param name="quality" value="high" />
+ <param name="bgcolor" value="#FFFFFF" />
+ <param name="flashVars" value="thumb=http://content.screencast.com/users/alexbaban/folders/Default/media/167bebcf-8584-44ce-8d12-a6a54854b3b9/FirstFrame.jpg&containerwidth=800&containerheight=600&content=http://content.screencast.com/users/alexbaban/folders/Default/media/167bebcf-8584-44ce-8d12-a6a54854b3b9/2013-12-09_1737.swf&blurover=false" />
+ <param name="allowFullScreen" value="true" />
+ <param name="scale" value="showall" />
+ <param name="allowScriptAccess" value="always" />
+ <param name="base" value="http://content.screencast.com/users/alexbaban/folders/Default/media/167bebcf-8584-44ce-8d12-a6a54854b3b9/" />
+ Unable to display content. Adobe Flash is required.
+</object> 
+</pre>
+
+
+
 ]]></content>
   </entry>
   
