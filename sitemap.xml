@@ -12,6 +12,7 @@
         <loc>
             http://www.alexbaban.com/blog/2013/12/09/using-livereload-and-livereloadx-on-windows-free-solution/
         </loc>
+<<<<<<< HEAD
         <lastmod>2013-12-10T00:23:59-08:00</lastmod>
     </url>
     <url>
@@ -21,6 +22,29 @@
     <url>
         <loc>http://www.alexbaban.com/</loc>
         <lastmod>2013-12-10T00:23:59-08:00</lastmod>
+=======
+<<<<<<< HEAD
+        <lastmod>2013-12-10T00:18:03-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbaban.com/blog/archives/</loc>
+        <lastmod>2013-12-10T00:18:03-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbaban.com/</loc>
+        <lastmod>2013-12-10T00:18:03-08:00</lastmod>
+=======
+        <lastmod>2013-12-10T00:10:05-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbaban.com/blog/archives/</loc>
+        <lastmod>2013-12-10T00:10:05-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbaban.com/</loc>
+        <lastmod>2013-12-10T00:10:05-08:00</lastmod>
+>>>>>>> b5ef567d801bd189f28f5fd4dd27ea0cb1102f86
+>>>>>>> 310c19887afff7160939d4500903f90d8fec880b
     </url>
     <url>
         <loc>http://www.alexbaban.com/robots.txt</loc>
