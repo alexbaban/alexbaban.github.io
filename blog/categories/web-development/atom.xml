@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Tools | ALEX BABAN]]></title>
-  <link href="http://www.alexbaban.com/blog/categories/tools/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Web Development | ALEX BABAN]]></title>
+  <link href="http://www.alexbaban.com/blog/categories/web-development/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
   <updated>2013-12-09T23:17:15-08:00</updated>
   <id>http://www.alexbaban.com/</id>
@@ -40,62 +40,6 @@
 <p>Below is my screencast showing LiveReload, LiveReloadX on Windows.</p>
 
 <p><video width='' height='' preload='none' controls poster=''><source src='https://www.dropbox.com/s/r6vlaupj3nlf295/2013-12-09_1737.swf">https://www.dropbox.com/s/r6vlaupj3nlf295/2013-12-09_1737.swf</a>' ></video></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Copy as Path for Windows XP or Later]]></title>
-    <link href="http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-or-later/"/>
-    <updated>2013-12-05T12:46:42-08:00</updated>
-    <id>http://www.alexbaban.com/blog/2013/12/05/copy-as-path-for-windows-xp-or-later</id>
-    <content type="html"><![CDATA[<p>Many times, during my work, I need to type or paste the path of a folder or file. On Windows 7 if you &ldquo;Shift + Right-Click&rdquo; on a file or folder, you get the &ldquo;Copy as path&rdquo; option, which copies to the clipboard the complete path of the folder or file. The path is copied surrounded by double quotes. Windows XP (yes, I still use Windows XP, mostly for testing) does not have &ldquo;Copy as path&rdquo;, also on Windows 7 many times I need the path without the double quotes.</p>
-
-<p>I&rsquo;ve decided to write my own small program to add &ldquo;Copy as path&rdquo; options to Windows XP and also use it on Windows 7 to get the path when I don&rsquo;t need the double quotes.</p>
-
-<h2>CopyPath written in PureBasic</h2>
-
-<p>PureBasic is a native 32-bit and 64-bit programming language based on established BASIC rules. The key features of PureBasic are portability (Windows, Linux and MacOS X are currently supported), the production of very fast and highly optimized executables and, of course, the very simple BASIC syntax.</p>
-
-<p>I&rsquo;ve published the source code on <a href="https://github.com/alexbaban/small-projects">my GitHub &ldquo;small-projects&rdquo; repository</a> from where you can also download the executable. If you&rsquo;d like to build the program yourself from the source code, read on.</p>
-
-<p><div><script src='https://gist.github.com/7742321.js'></script>
-<noscript><pre><code>; CopyPath, utility program
-; It takes as argument a file or a folder, puts the path of it into clipboard
-; It can be a great time saver if included into &quot;Send to&quot; menu
-; This program is written in PureBasic, go to http://purebasic.com/ for the compiler/IDE
-; It works similar to &quot;Copy as path&quot; feature from Windows 7
-; It works on Windows XP or later
-
-; Author: Alex Baban
-; Date: 2013-03-15
-; Version: 1.0.1
-
-
-
-; make this a console program
-OpenConsole()
-
-; get the first argument (full path to file or folder)
-argPath$ = ProgramParameter(0)
-
-; put the path in clipboard as text
-SetClipboardText(argPath$)
-
-; show the path in a console window to give user feedback
-PrintN(argPath$)
-Delay(1000)
-
-; end program
-End</code></pre></noscript></div>
-</p>
-
-<h2>Build CopyPath from source code</h2>
-
-<p>To be continued&hellip;</p>
-
-<h2>Install CopyPath</h2>
-
-<p>To be continued&hellip;</p>
 ]]></content>
   </entry>
   

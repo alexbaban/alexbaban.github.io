@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2013-12-05T15:28:38-08:00</updated>
+  <updated>2013-12-09T23:17:15-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using LiveReload and LiveReloadX on Windows - Free Solution]]></title>
+    <link href="http://www.alexbaban.com/blog/2013/12/09/using-livereload-and-livereloadx-on-windows-free-solution/"/>
+    <updated>2013-12-09T22:10:32-08:00</updated>
+    <id>http://www.alexbaban.com/blog/2013/12/09/using-livereload-and-livereloadx-on-windows-free-solution</id>
+    <content type="html"><![CDATA[<h1>Hitting refresh on your browser everytime you change and save your code is so &ldquo;two years ago&rdquo;.</h1>
+
+<p>I always like to research (personal websites, blogs, twitters) the speakers of recent front-end, back-end conferences and learn from these awesome people.</p>
+
+<p>After watching some presentations made by some of the current <em>&ldquo;Ninja&rdquo;</em> or <em>&ldquo;Rock Star&rdquo;</em> developers (sorry <em>&ldquo;Gurus&rdquo;</em> but you&rsquo;re out of fashion (and old)) I wanted to setup live reload on my Windows development machine. I purchased the Compass.app for Windows and while it worked, my CPU usage went up by 30% when I was using it to monitor the file system for changes. I guess it did a lot of work in the background.</p>
+
+<p>After more research I found &lsquo;LiveReloadX&rsquo;, a LiveReload compatible server based on Node.js. I can tell that it&rsquo;s working very well, it&rsquo;s light on CPU and you can customize what file types you&rsquo;d like to monitor for changes. LiveReloadX on GitHub <a href="https://github.com/nitoyon/livereloadx">link here</a>.</p>
+
+<p>Here is the setup to get this working</p>
+
+<ol>
+<li><p>Install Node.js (if you don&rsquo;t have it already, which you should for other goodies)</p></li>
+<li><p>Install LiveReloadX global <code>npm install livereloadx -g</code></p></li>
+<li><p>Install the LiveReload browser extension <a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-">link here</a></p></li>
+<li><p>Open a command window and navigate into the folder you&rsquo;d like to monitor for changes. Sub-folders will also be monitored automaticaly. Run livereloadx in the command window and also click the LiveReload extension icon on the browser. Watch the messages between the server and the client in the command window.</p></li>
+<li><p>For more information about LiveReloadX including help, usage and command options visit <a href="http://nitoyon.github.io/livereloadx/">link here</a></p></li>
+</ol>
+
+
+<p>Below is my screencast showing LiveReload, LiveReloadX on Windows.</p>
+
+<p><video width='' height='' preload='none' controls poster=''><source src='https://www.dropbox.com/s/r6vlaupj3nlf295/2013-12-09_1737.swf' ></video></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Copy as Path for Windows XP or Later]]></title>
