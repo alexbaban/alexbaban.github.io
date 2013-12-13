@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Virtual Servers | ALEX BABAN]]></title>
+  <link href="http://www.alexbaban.com/blog/categories/virtual-servers/atom.xml" rel="self"/>
+  <link href="http://www.alexbaban.com/"/>
+  <updated>2013-12-13T13:39:58-08:00</updated>
+  <id>http://www.alexbaban.com/</id>
+  <author>
+    <name><![CDATA[Alex Baban]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Securing a DigitalOcean Cloud Server]]></title>
+    <link href="http://www.alexbaban.com/blog/2013/12/13/securing-a-digitalocean-cloud-server/"/>
+    <updated>2013-12-13T11:54:19-08:00</updated>
+    <id>http://www.alexbaban.com/blog/2013/12/13/securing-a-digitalocean-cloud-server</id>
+    <content type="html"><![CDATA[<h3>I like DigitalOcean. It&rsquo;s one of my playgrounds. I spin up a virtual server, make a mess for a few hours then destroy it. The cost: $0.03 for about 4 hours of fun.</h3>
+
+<p>But not all my virtual servers are short lived. Some, I need them up for a few days or weeks, some even longer. Here is what I do to secure a DigitalOcean virtual server.</p>
+
+<p>Once the server is ready (it really takes about 60 seconds), I login using the &ldquo;Console Access&rdquo; VNC connection that&rsquo;s available on DigitalOcean&rsquo;s user account interface, then:</p>
+
+<p>``` bash</p>
+
+<h1>change root password</h1>
+
+<p>passwd</p>
+
+<h1>update all packages and operating system</h1>
+
+<p>apt-get update &amp;&amp; apt-get &mdash;yes upgrade</p>
+
+<h1>make a backup of sshd_config file, a read-only copy in /etc/ssh</h1>
+
+<p>sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.factory-defaults
+sudo chmod a-w /etc/ssh/sshd_config.factory-defaults</p>
+
+<h1>edit the sshd_config file in the /etc/ssh directory</h1>
+
+<p>nano /etc/ssh/sshd_config</p>
+
+<h1>restrict ssh access by <my ip address>, add line</h1>
+
+<p>AllowUsers root@<my ip address></p>
+
+<p>```</p>
+
+<p>At this point, I&rsquo;m good to start playing, I mean working. Any SSH access will be denied if the remote ip address doesn&rsquo;t match my ip address. I can also <code>cat /var/log/auth.log | more</code> to check the logs for any hacking attempts.</p>
+
+<p>Sure, there are more techniques (SSH key pairs, configure iptables, use a non-standard port, limit users and groups, TCP wrappers, fail2ban and denyhosts) that can be combined to provide as much security as possible. The <code>sshd_config</code> technique explained above is quick.</p>
+
+<p>Below I will describe how to configure iptables (built in firewall) rules to make ssh stealth. I use this when I expect to keep my virtual server up for more than just a few hours.</p>
+
+<p>``` bash</p>
+
+<h1>view all iptables rules (none for a new server)</h1>
+
+<p>iptables &mdash;list</p>
+
+<h1>view iptables rules by number and chain</h1>
+
+<p>iptables -L INPUT &mdash;line-numbers</p>
+
+<h1>restrict ssh access by ip address</h1>
+
+<p>sudo iptables -A INPUT -p tcp &mdash;dport 22 -s <my ip address> -j ACCEPT
+sudo iptables -A INPUT -p tcp &mdash;dport 22 -j REJECT</p>
+
+<h1>also securing Jetty (when installed)</h1>
+
+<p>sudo iptables -A INPUT -p tcp &mdash;dport 8080 -s 127.0.0.1 -j ACCEPT
+sudo iptables -A INPUT -p tcp &mdash;dport 8080 -j REJECT</p>
+
+<h1>make firewall rules persistent, save them to a file</h1>
+
+<p>sudo sh -c &ldquo;iptables-save > /etc/iptables.rules&rdquo;</p>
+
+<h1>make changes to /etc/network/interfaces</h1>
+
+<p>sudo nano /etc/network/interfaces</p>
+
+<h1>at the end of the primary network interface (eth0) config add:</h1>
+
+<p>pre-up iptables-restore &lt; /etc/iptables.rules</p>
+
+<p>```</p>
+
+<p>The best way to secure the ssh daemon and other services is to apply more than one of these methods. Choosing the right ones means weighing security against convenience. Remember to play safe.</p>
+]]></content>
+  </entry>
+  
+</feed>
