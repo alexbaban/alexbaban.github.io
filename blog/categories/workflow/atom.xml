@@ -4,15 +4,7 @@
   <title><![CDATA[Category: Workflow | ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/blog/categories/workflow/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-<<<<<<< HEAD
-  <updated>2013-12-10T00:24:00-08:00</updated>
-=======
-<<<<<<< HEAD
-  <updated>2013-12-10T00:18:03-08:00</updated>
-=======
-  <updated>2013-12-10T00:10:05-08:00</updated>
->>>>>>> b5ef567d801bd189f28f5fd4dd27ea0cb1102f86
->>>>>>> 310c19887afff7160939d4500903f90d8fec880b
+  <updated>2013-12-13T11:45:35-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -30,7 +22,7 @@
 
 <p>I always like to research (personal websites, blogs, twitters) the speakers of recent front-end, back-end conferences and learn from these awesome people.</p>
 
-<p>After watching some presentations made by some of the current <em>&ldquo;Ninja&rdquo;</em> or <em>&ldquo;Rock Star&rdquo;</em> developers (sorry <em>&ldquo;Gurus&rdquo;</em> but you&rsquo;re out of fashion (and old)) I wanted to setup live reload on my Windows development machine. I purchased the Compass.app for Windows and while it worked, my CPU usage went up by 30% when I was using it to monitor the file system for changes. I guess it did a lot of work in the background.</p>
+<p>After watching some presentations made by some of the current <em>&ldquo;Ninja&rdquo;</em> or <em>&ldquo;Rockstar&rdquo;</em> developers (sorry <em>&ldquo;Gurus&rdquo;</em> but you&rsquo;re out of fashion) I wanted to setup live reload on my Windows development machine. I purchased the Compass.app for Windows and while it worked, my CPU usage went up by 30% when I was using it to monitor the file system for changes. I guess it did a lot of work in the background.</p>
 
 <p>After more research I found &lsquo;LiveReloadX&rsquo;, a LiveReload compatible server based on Node.js. I can tell that it&rsquo;s working very well, it&rsquo;s light on CPU and you can customize what file types you&rsquo;d like to monitor for changes. LiveReloadX on GitHub <a href="https://github.com/nitoyon/livereloadx">link here</a>.</p>
 
