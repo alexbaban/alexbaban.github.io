@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2014-01-07T00:09:37-08:00</updated>
+  <updated>2014-01-07T00:13:46-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -41,6 +41,9 @@
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># change root password</span>
 </span><span class='line'>passwd
 </span><span class='line'>
@@ -58,6 +61,9 @@
 </span><span class='line'>
 </span><span class='line'><span class="c"># restrict ssh access by &lt;my ip address&gt;, add line</span>
 </span><span class='line'>AllowUsers root@&lt;my ip address&gt;
+</span><span class='line'>
+</span><span class='line'><span class="c"># restart ssh</span>
+</span><span class='line'>sudo service ssh restart
 </span></code></pre></td></tr></table></div></figure>
 
 
