@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SPA | ALEX BABAN]]></title>
+  <link href="http://www.alexbaban.com/blog/categories/spa/atom.xml" rel="self"/>
+  <link href="http://www.alexbaban.com/"/>
+  <updated>2014-01-08T20:48:19-08:00</updated>
+  <id>http://www.alexbaban.com/</id>
+  <author>
+    <name><![CDATA[Alex Baban]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Angular Movies. A Very Basic SPA Built With AngularJS]]></title>
+    <link href="http://www.alexbaban.com/blog/2014/01/07/angular-movies-a-very-basic-spa-built-with-angularjs/"/>
+    <updated>2014-01-07T01:24:02-08:00</updated>
+    <id>http://www.alexbaban.com/blog/2014/01/07/angular-movies-a-very-basic-spa-built-with-angularjs</id>
+    <content type="html"><![CDATA[<h3>This is a proof of concept about using AngularJS to build a Single Page App.</h3>
+
+<p>I&rsquo;m going to code a SPA that will show a list with movies currently in theaters. The data will come from the Rotten Tomatoes' API RESTful web service. The view will show a list with 5 items (movies per page). At the bottom of the list there will be two navigation buttons (next and previous page as appropriate). Navigating and updating the list with movies will be done without page refresh. It&rsquo;s not something complicated, but I&rsquo;ll go step by step and explain <em>why</em> rather than <em>how</em>.</p>
+
+<p>I&rsquo;m using Node.js for the web server, get it from <a href="http://nodejs.org/.">http://nodejs.org/.</a> Also get web-server.js from <a href="https://github.com/angular/angular-seed/">https://github.com/angular/angular-seed/</a> inside the &ldquo;scripts&rdquo; folder. This really has not much to do with the app, it&rsquo;s just my choice for the web server. The app can be served from any web server, IIS, Apache, etc.</p>
+
+<p>Let&rsquo;s create a folder for the app, say <code>c:\app</code>. Put web-server.js file in <code>c:\app</code> and launch the web server with <code>node web-server.js</code> (use the command prompt inside <code>c:\app</code>).</p>
+
+<p>Start with a basic html template, index.html</p>
+
+<p>``` html index.html
+&lt;!DOCTYPE html></p>
+
+<p><html></p>
+
+<pre><code>&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Angular Movies&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;p&gt;Angular Movies&lt;/p&gt;
+
+&lt;/body&gt;
+</code></pre>
+
+<p></html></p>
+
+<p>```</p>
+
+<p>I want a list with movies, so it&rsquo;s quick to just type the movie titles and year.</p>
+
+<p>``` html index.html
+&lt;!DOCTYPE html></p>
+
+<p><html></p>
+
+<pre><code>&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Angular Movies&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;p&gt;Angular Movies&lt;/p&gt;
+
+    &lt;ul&gt;
+        &lt;li&gt;The Hobbit: The Desolation Of Smaug (2013)&lt;/li&gt;
+        &lt;li&gt;47 Ronin (2013)&lt;/li&gt;
+        &lt;li&gt;Frozen (2013)&lt;/li&gt;
+        &lt;li&gt;Anchorman 2: The Legend Continues (2013)&lt;/li&gt;
+        &lt;li&gt;Walking With Dinosaurs (2013)&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+</code></pre>
+
+<p></html>
+```</p>
+
+<p>Now I have a problem, the <em>data</em> <code>The Hobbit: The Desolation Of Smaug (2013)</code> is coupled with the <em>view</em> <code>&lt;li&gt;&lt;/li&gt;</code>. To fix this, I&rsquo;ll use JavaScript (no AngularJS yet). It&rsquo;s easy to see that if I move the data into a hashtable, then a JavaScript <em>for loop</em> can be used to show the list, something like this:</p>
+
+<p>``` javascript
+for (var i = 0; i &lt; 5; ++i) {</p>
+
+<pre><code>    document.write("&lt;li&gt;" + movieTitle[i] + " (" + movieYear[i] + ")&lt;/li&gt;");
+}
+</code></pre>
+
+<p>```</p>
+
+<p>The new code for index.html looks like this:</p>
+
+<p>``` html index.html
+&lt;!DOCTYPE html></p>
+
+<p><html>
+  <head></p>
+
+<pre><code>  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Angular Movies&lt;/title&gt;
+  &lt;script src="app.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>  </head></p>
+
+<p>  <body></p>
+
+<pre><code>&lt;p&gt;Angular Movies&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;script&gt;listMovies();&lt;/script&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>  </body>
+</html>
+```</p>
+
+<p>and the new file <code>app.js</code> contains the JavaScript code with just one function <code>listMovies()</code>:</p>
+
+<p>``` javascript app.js
+function listMovies() {</p>
+
+<pre><code>var moviesData = [
+    {
+        title: 'The Hobbit: The Desolation Of Smaug (2013)',
+        year: '2013'
+    }, 
+    {
+        title: '47 Ronin',
+        year: '2013'
+    }, 
+    {
+        title: 'Frozen',
+        year: '2013'
+    }, 
+    {
+        title: 'Anchorman 2: The Legend Continues',
+        year: '2013'
+    }, 
+    {
+        title: 'Walking With Dinosaurs',
+        year: '2013'
+    }
+];
+
+var list = "";
+
+for (var i = 0; i &lt; moviesData.length; ++i) {
+    list = list + "&lt;li&gt;" + moviesData[i].title + " (" + moviesData[i].year + ")&lt;/li&gt;";
+}
+
+return document.write(list);
+</code></pre>
+
+<p>}
+```</p>
+
+<p>While this works, I don&rsquo;t like it. It&rsquo;s ugly. What is ugly? This is ugly:</p>
+
+<p>``` html</p>
+
+<ul>
+    <script>listMovies();</script>
+</ul>
+
+
+<p>```</p>
+
+<p>and this is also ugly:</p>
+
+<p><code>javascript
+return document.write(list);
+</code></p>
+
+<p>What I would like is something like this (pseudocode):</p>
+
+<p>``` html</p>
+
+<ul>
+    <loop collection="moviesData" index="i">
+        <li>movie.title[i] (movie.year[i])</li>
+    </loop>
+</ul>
+
+
+<p>```</p>
+
+<p>and somehow <code>moviesData</code> collection should be avaliable between <code>index.html</code> and <code>app.js</code>. It turns out <em>AngularJS</em> will provide this and more. Let&rsquo;s see how, here is perfectly valid AngularJS code (you can guess what ng-repeat does):</p>
+
+<p>
+``` html</p>
+
+<ul>
+    <li ng-repeat="movie in movies">{{movie.title}} ({{movie.year}})</li>
+</ul>
+
+
+<p>```
+</p>
+
+<p>Before I enable AngularJS, I would like to make an analogy, something that really helped me to understand AngularJS. Imagine a construction site with construction workers, materials and a crane. The crane does the heavy lifting of construction materials, etc. from the ground to crews working on the 7-th floor. AngularJS has something similar with the crane, it&rsquo;s the <code>$scope</code> and in fact just like you can see more cranes on a site you can see more scopes on AngularJs.</p>
+
+<p>To enable AngularJS on my app, I have to follow a few conventions, let&rsquo;s look at the index.html code this time with AngularJS enabled:</p>
+
+<p>
+``` html index.html
+&lt;!DOCTYPE html></p>
+
+<p><html ng-app="myApp"></p>
+
+<p>  <head></p>
+
+<pre><code>&lt;title&gt;Angular Movies&lt;/title&gt;
+
+&lt;script src="angular.js"&gt;&lt;/script&gt;
+&lt;script src="app.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>  </head></p>
+
+<p>  <body></p>
+
+<pre><code>&lt;p&gt;Angular Movies&lt;/p&gt;
+
+&lt;div id="container" ng-controller="myController"&gt;
+
+  &lt;ul&gt;
+    &lt;li ng-repeat="movie in movies"&gt;{{movie.title}} ({{movie.year}})&lt;/li&gt;
+  &lt;/ul&gt; 
+
+&lt;/div&gt;
+</code></pre>
+
+<p>  </body></p>
+
+<p></html></p>
+
+<p>```
+</p>
+
+<p>On line #8, I have included the angular.js file, it&rsquo;s the AngularJS JavaScript library.</p>
+
+<p>On line #3, I have <code>&lt;html ng-app="myApp"&gt;</code> and that is a convention, a directive to auto-bootstrap an AngularJS application. I named my app <code>myApp</code> but it could be any name.</p>
+
+<p>Line #14 <code>&lt;div ng-controller="myController"&gt;</code> has <code>ng-controller="myController"</code> and this is another convention, another directive that attaches a controller class I named it <code>myController</code> to the view. This is a key aspect of how angular supports the principles behind the Model-View-Controller design pattern. In other words the contents of the div with the id <code>container</code> are under the control of <code>myController</code>. Now, obviously <code>myController</code> will be coded inside app.js file. Let&rsquo;s take a look at it:</p>
+
+<p>
+``` javascript app.js</p>
+
+<p>// declare a module
+var myAppModule = angular.module(&lsquo;myApp&rsquo;, []);</p>
+
+<p>// declare a controller
+myAppModule.controller(&lsquo;myController&rsquo;, function ($scope) {</p>
+
+<pre><code>// make some movies
+var moviesData = [{
+        title: 'The Hobbit: The Desolation Of Smaug (2013)',
+        year: '2013'
+    }, {
+        title: '47 Ronin',
+        year: '2013'
+    }, {
+        title: 'Frozen',
+        year: '2013'
+    }, {
+        title: 'Anchorman 2: The Legend Continues',
+        year: '2013'
+    }, {
+        title: 'Walking With Dinosaurs',
+        year: '2013'
+    }];
+
+// put movies data into the scope (remember the crane)
+$scope.movies = moviesData;        
+</code></pre>
+
+<p>});</p>
+
+<p>```
+</p>
+
+<p>Can you see how nice this is? The data is totaly separated from the view, and the scope&hellip; the $scope it&rsquo;s just awesome. It does the heavy lifting for the app. Work with the data in the controller, put it in the $scope and the view knows about it and it will do its job to show it. Very nice.</p>
+
+<p>I&rsquo;ll move to the next step. Get real time data from the Rotten Tomatoes’ API RESTful web service. Where I have to work is here: <code>$scope.movies = moviesData;</code> and make sure that what&rsquo;s in <code>moviesData</code> comes from the API. AngularJS will help with this. Here is how:</p>
+
+<p>``` javascript
+myAppModule.factory(&lsquo;moviesData&rsquo;, function ($http) {</p>
+
+<pre><code>return {
+    getMovies: function () {
+
+        var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=sxu85vhd8898raqdwe7kx78y&amp;callback=JSON_CALLBACK";
+
+        return $http.jsonp(url);
+    }
+}
+</code></pre>
+
+<p>});</p>
+
+<p>```</p>
+
+<p>So, why the <code>myAppModule.factory('moviesData'</code>? Remember the crane, AngularJS makes it possible to create your own crane (to write your own custom services). Here I&rsquo;m creating my service <code>moviesData</code> and use it to make a jsonp $http request to Rotten Tomatoes’ API.</p>
+
+<p>Next, before I work on pagination I&rsquo;m going to add Bootstrap CSS to the app, to take advantage of the well defined grid system that comes with Bootstrap and to make the app look better. Also Bootstrap is pretty good at formating tables and buttons. Here is <code>index.html</code> with Bootstrap and <code>Prev</code> and <code>Next</code> buttons (that don&rsquo;t do anything for now).</p>
+
+<p>
+``` html index.html
+&lt;!DOCTYPE html></p>
+
+<p><html ng-app="myApp"></p>
+
+<p>  <head></p>
+
+<pre><code>&lt;title&gt;Angular Movies&lt;/title&gt;
+
+&lt;link href="./css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;script src="./js/angular.js"&gt;&lt;/script&gt;
+&lt;script src="./js/app.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>  </head></p>
+
+<p>  <body></p>
+
+<pre><code>&lt;div id="container" class="col-md-5" ng-controller="myController"&gt;
+
+  &lt;h1&gt;Angular Movies&lt;/h1&gt;
+
+  &lt;table class="table table-hover table-striped"&gt;
+
+    &lt;tfoot&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;button class="btn btn-info"&gt;
+            &lt;span class="glyphicon glyphicon-arrow-left"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &amp;nbsp;                    
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;button class="btn btn-info"&gt;
+            &lt;span class="glyphicon glyphicon-arrow-right"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;              
+    &lt;/tfoot&gt;
+
+    &lt;tbody&gt;
+      &lt;tr ng-repeat="movie in movies"&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;{{movie.title}} ({{movie.year}})&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+  &lt;/table&gt;
+
+&lt;/div&gt;
+</code></pre>
+
+<p>  </body></p>
+
+<p></html></p>
+
+<p>```
+</p>
+
+<p>Now it&rsquo;s time to introduce a couple of nice AngularJS directives <code>ngShow</code> (shows or hides the given HTML element based on the expression provided to the ngShow attribute) and <code>ngClick</code> (allows you to specify custom behavior when an element is clicked). I&rsquo;ll use this on the buttons to add navigation and to show or hide the buttons as appropriate (I don&rsquo;t want to show the Prev button on the first page and I don&rsquo;t want to show the Next button on the last page). I also need a few methods on the controller, they are: hasNext(), showNext(), hasPrev() and showPrev() (names are self-explanatory).</p>
+
+<p>Let&rsquo;s look at the updated (and final for this post) <code>app.js</code> code:</p>
+
+<p>
+``` javascript app.js
+var myAppModule = angular.module(&lsquo;myApp&rsquo;, []);</p>
+
+<p>myAppModule.controller(&lsquo;myController&rsquo;, function ($scope, moviesData) {</p>
+
+<pre><code>var page = 1;
+var pageLimit = 5;
+
+$scope.movies = [];
+
+var loadData = function () {
+    moviesData.getMovies(page, pageLimit).then(function (response) {  
+        $scope.movies = response.data.movies;                                      
+    });
+}    
+
+$scope.hasNext = function () {
+    return ($scope.movies.length === pageLimit);
+}
+
+$scope.showNext = function () {
+    page += 1;
+    loadData();
+}
+
+$scope.hasPrev = function () {
+    return (page - 1);
+}
+
+$scope.showPrev = function () {
+   page -= 1;
+    loadData();
+}
+
+loadData();    
+</code></pre>
+
+<p>});</p>
+
+<p>myAppModule.factory(&lsquo;moviesData&rsquo;, function ($http) {</p>
+
+<pre><code>return {
+    getMovies: function (page, pageLimit) {
+        var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json";
+        var apikey = "sxu85vhd8898raqdwe7kx78y";
+
+            var url = baseUrl + '?apikey=' + apikey + '&amp;page=' + page + '&amp;page_limit=' + pageLimit + '&amp;callback=JSON_CALLBACK';
+
+        return $http.jsonp(url);
+    }
+}
+</code></pre>
+
+<p>});</p>
+
+<p>```
+</p>
+
+<p>and updated <code>index.html</code> code, where I&rsquo;ve added a thumbnail for the movie&rsquo;s poster:</p>
+
+<p>
+``` html index.html
+&lt;!DOCTYPE html></p>
+
+<p><html ng-app="myApp"></p>
+
+<p>  <head></p>
+
+<pre><code>&lt;title&gt;Angular Movies&lt;/title&gt;
+
+&lt;link href="./css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;script src="./js/angular.js"&gt;&lt;/script&gt;
+&lt;script src="./js/app.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>  </head></p>
+
+<p>  <body></p>
+
+<pre><code>&lt;div id="container" class="col-md-5" ng-controller="myController"&gt;
+
+  &lt;h1&gt;Angular Movies&lt;/h1&gt;
+
+  &lt;table class="table table-hover table-striped"&gt;
+
+    &lt;tfoot&gt;
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;button class="btn btn-info" ng-show="hasPrev()" ng-click="showPrev()"&gt;
+            &lt;span class="glyphicon glyphicon-arrow-left"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+          &amp;nbsp;                    
+        &lt;/td&gt;
+        &lt;td&gt;
+          &lt;button class="btn btn-info" ng-show="hasNext()" ng-click="showNext()"&gt;
+            &lt;span class="glyphicon glyphicon-arrow-right"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;              
+    &lt;/tfoot&gt;
+
+    &lt;tbody&gt;
+      &lt;tr ng-repeat="movie in movies"&gt;
+        &lt;td&gt;&lt;img ng-src="{{movie.posters.thumbnail}}" width="61px;" /&gt;&lt;/td&gt;
+        &lt;td&gt;{{movie.title}} ({{movie.year}})&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+  &lt;/table&gt;
+
+&lt;/div&gt;
+</code></pre>
+
+<p>  </body></p>
+
+<p></html></p>
+
+<p>```
+</p>
+
+<p>The files for this project can be found on my GitHub account at <a href="https://github.com/alexbaban/angularjs-fun">https://github.com/alexbaban/angularjs-fun</a> in the <code>angular movies 01</code> folder.</p>
+]]></content>
+  </entry>
+  
+</feed>
