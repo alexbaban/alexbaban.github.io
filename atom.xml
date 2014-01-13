@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2014-01-12T13:03:16-08:00</updated>
+  <updated>2014-01-12T16:53:24-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -18,56 +18,55 @@
     <link href="http://www.alexbaban.com/blog/2014/01/12/setting-up-a-new-computer-for-html5-webworks-apps-development/"/>
     <updated>2014-01-12T12:24:46-08:00</updated>
     <id>http://www.alexbaban.com/blog/2014/01/12/setting-up-a-new-computer-for-html5-webworks-apps-development</id>
-    <content type="html"><![CDATA[<h3>Here are the steps to follow when setting up a new computer for BlackBerry HTML5 WebWorks development.</h3>
+    <content type="html"><![CDATA[<h3>Steps to follow when setting up a new computer for BlackBerry HTML5 WebWorks development.</h3>
 
-<p>Make a backup of the existing registered BlackBerry Code Signing Keys
+<p><strong>Make a backup of the existing registered BlackBerry Code Signing Keys</strong>
 <code>Files: author.p12, barsigner.csk, barsigner.db</code>
-<code>Location (Windows 7): "C:\Users\&lt;username&gt;\AppData\Local\Research In Motion"</code></p>
+<code>Source (Windows 7): "C:\Users\&lt;username&gt;\AppData\Local\Research In Motion"</code></p>
 
-<p>Copy all three files (author.p12, barsigner.csk, barsigner.db) to the new computer into
-<code>"C:\Users\&lt;username&gt;\AppData\Local\Research In Motion" folder (if needed create the "Research In Motion" folder)</code></p>
+<p><strong>Copy all three files (author.p12, barsigner.csk, barsigner.db) to the new computer</strong>
+<code>Destination: "C:\Users\&lt;username&gt;\AppData\Local\Research In Motion"</code> (if needed create the &ldquo;Research In Motion&rdquo; folder)</p>
 
-<p>Download and install the Adobe AIR SDK &amp; Compiler
+<p><strong>Download and install the Adobe AIR SDK &amp; Compiler</strong>
 <code>Search Google for "download adobe air sdk"</code></p>
 
-<p>Download and instal the BlackBerry WebWorks SDK for PlayBook OS (tablet)
+<p><strong>Download and instal the BlackBerry WebWorks SDK for PlayBook OS (tablet)</strong>
 <code>http://developer.blackberry.com/playbook/html5/download/</code></p>
 
-<p>Verify and update %PATH% and %JAVA_HOME% Environment Variables
-<code>"C:\&lt;BlackBerry WebWorks SDK install folder&gt;\jre\bin" has to be added to %PATH% and it needs to replace any
-previous path that was pointing to a different java bin</code>
-<code>%JAVA_HOME% is not required but if it is set for other programs (e.g. maven) then it has to be set to
-point to "C:\&lt;BlackBerry WebWorks SDK install folder&gt;\jre"</code>
-<code>&lt;java&gt;&lt;/java&gt; from bbwp.properties has to either be empty or "C:\&lt;BlackBerry WebWorks SDK install folder&gt;\jre"</code></p>
+<p><strong>Verify and update %PATH% and %JAVA_HOME% Environment Variables</strong>
+<code>"C:\&lt;BlackBerry WebWorks SDK install folder&gt;\jre\bin"</code> has to be added to <code>%PATH%</code> and it needs to replace any previous path that was pointing to a different java bin</p>
 
-<p>Verify debug token
-<code>C:\&lt;BlackBerry WebWorks SDK install folder&gt;\bbwp\AirAppTemplates\src\blackberry-tablet.xml
-must contain proper &lt;author&gt; and &lt;authorId&gt; values</code>
-<code>If packaging is done via command line then &lt;debug_token&gt;&lt;/debug_token&gt; from bbwp.properties has to contain a full path to a valid debug token</code></p>
+<p><code>%JAVA_HOME%</code> is not required but if it is set for other programs (e.g. maven) then it has to be set to point to <code>"C:\&lt;BlackBerry WebWorks SDK install folder&gt;\jre"</code></p>
 
-<p>Create a debug token
-<code>At a command prompt, navigate to "\blackberry-tablet-sdk\bin" in the &lt;BlackBerry WebWorks SDK install folder&gt;</code>
-<code>"blackberry-debugtokenrequest.bat -storepass &lt;KeystorePassword&gt; -devicepin &lt;device PIN&gt; &lt;debug_token_file_name.bar&gt;"</code></p>
+<p><code>&lt;java&gt;&lt;/java&gt;</code> from <code>bbwp.properties</code> has to either be empty or contain <code>"C:\&lt;BlackBerry WebWorks SDK install folder&gt;\jre"</code></p>
 
-<p>Install a debug token
-<code>Configure the BlackBerry PlayBook tablet for development mode</code>
-<code>At a command prompt, navigate to "\blackberry-tablet-sdk\bin" in the &lt;BlackBerry WebWorks SDK install folder&gt;</code>
-<code>"blackberry-deploy -installDebugToken &lt;path to debug token&gt; -device &lt;Development Address&gt; -password &lt;device password&gt;"</code></p>
+<p><strong>Verify debug token</strong>
+<code>"C:\&lt;BlackBerry WebWorks SDK install folder&gt;\bbwp\AirAppTemplates\src\blackberry-tablet.xml"</code> must contain proper <code>&lt;author&gt;</code> and <code>&lt;authorId&gt;</code> values</p>
 
-<p>Install the Chrome browser and the Ripple extension for Chrome</p>
+<p>If packaging is done via command line then <code>&lt;debug_token&gt;&lt;/debug_token&gt;</code> from <code>bbwp.properties</code> has to contain a full path to a valid debug token</p>
 
-<p>Create a &ldquo;Hello World!&rdquo; PlayBook HTML5 &amp; WebWorks app
-<code>(in a folder C:\Users\&lt;username&gt;\RippleSites\HelloWorld)</code></p>
+<p><strong>Create a debug token</strong><br>At a command prompt, navigate to <code>"\blackberry-tablet-sdk\bin"</code> in the <code>&lt;BlackBerry WebWorks SDK install folder&gt;</code></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\icon.png
-</span><span class='line'>\index.html
-</span><span class='line'>\config.xml</span></code></pre></td></tr></table></div></figure>
+<p><code>blackberry-debugtokenrequest.bat -storepass &lt;KeystorePassword&gt; -devicepin &lt;device PIN&gt; &lt;debug_token_file_name.bar&gt;</code></p>
 
+<p><strong>Install a debug token</strong><br>Configure the BlackBerry PlayBook tablet for development mode</p>
 
+<p>At a command prompt, navigate to <code>"\blackberry-tablet-sdk\bin"</code> in the <code>&lt;BlackBerry WebWorks SDK install folder&gt;</code></p>
 
+<p><code>blackberry-deploy -installDebugToken &lt;path to debug token&gt; -device &lt;Development Address&gt; -password &lt;device password&gt;</code></p>
+
+<p><strong>Install the Chrome browser and the Ripple extension for Chrome</strong></p>
+
+<p><strong>Create a &ldquo;Hello World!&rdquo; PlayBook HTML5 &amp; WebWorks app</strong></p>
+
+<p>Folder: <code>"C:\Users\&lt;username&gt;\RippleSites\HelloWorld"</code> and files:</p>
+
+<pre><code>\icon.png
+\index.html
+\config.xml
+</code></pre>
+
+<p>The home screen icon <code>icon.png</code> is in GitHub repo, source code for <code>index.html</code> and <code>config.xml</code>:</p>
 
 <figure class='code'><figcaption><span>index.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -131,7 +130,7 @@ must contain proper &lt;author&gt; and &lt;authorId&gt; values</code>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Use command line or Ripple to package and deploy the app on a PlayBook tablet</p>
+<p><strong>Use command line or Ripple to package and deploy the app on a PlayBook tablet</strong></p>
 
 <p>GitHub repo for this post <a href="https://github.com/alexbaban/devops/tree/master/HTML5%20WebWorks%20PlayBook%20%28seed%29/">link here</a></p>
 
@@ -247,6 +246,8 @@ must contain proper &lt;author&gt; and &lt;authorId&gt; values</code>
 
 
 <p>The best way to secure the ssh daemon and other services is to apply more than one of these methods. Choosing the right ones means weighing security against convenience. Remember to play safe.</p>
+
+<p>//+ &lt;3 by alexbaban</p>
 ]]></content>
   </entry>
   
@@ -292,7 +293,7 @@ must contain proper &lt;author&gt; and &lt;authorId&gt; values</code>
 </pre>
 
 
-
+<p>//+ &lt;3 by alexbaban</p>
 ]]></content>
   </entry>
   
@@ -344,11 +345,9 @@ End</code></pre></noscript></div>
 
 <h2>Build CopyPath from source code</h2>
 
-<p>To be continued&hellip;</p>
-
 <h2>Install CopyPath</h2>
 
-<p>To be continued&hellip;</p>
+<p>//+ &lt;3 by alexbaban</p>
 ]]></content>
   </entry>
   

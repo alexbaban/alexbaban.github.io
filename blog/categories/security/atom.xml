@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Security | ALEX BABAN]]></title>
   <link href="http://www.alexbaban.com/blog/categories/security/atom.xml" rel="self"/>
   <link href="http://www.alexbaban.com/"/>
-  <updated>2014-01-12T13:03:16-08:00</updated>
+  <updated>2014-01-12T16:53:24-08:00</updated>
   <id>http://www.alexbaban.com/</id>
   <author>
     <name><![CDATA[Alex Baban]]></name>
@@ -94,6 +94,8 @@ sudo iptables -A INPUT -p tcp &mdash;dport 8080 -j REJECT</p>
 <p>```</p>
 
 <p>The best way to secure the ssh daemon and other services is to apply more than one of these methods. Choosing the right ones means weighing security against convenience. Remember to play safe.</p>
+
+<p>//+ &lt;3 by alexbaban</p>
 ]]></content>
   </entry>
   
