@@ -35,6 +35,8 @@ connection.end(
     
  ```
  
+ Foo bar baz.  
+ 
  ## Something something
  
  hey
