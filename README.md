@@ -1,3 +1,5 @@
+# Blog written by Alex Baban
+
 ## Some sample JavaScript
 
 ```js
