@@ -35,8 +35,8 @@ connection.end(
     
  ```
  
- Foo bar baz.  
+Foo bar baz.  
  
- ## Something something
+## Something something
  
- hey
+hey
