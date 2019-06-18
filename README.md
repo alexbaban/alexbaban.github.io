@@ -4,4 +4,4 @@
 
 ## 2018
 ### Sending Text Messages with Red and Twilio
-<a href="https://www.twilio.com/blog/send-text-messages-red-language-twilio" target="_blank">more...</a>
+[more...](https://www.twilio.com/blog/send-text-messages-red-language-twilio){:target="_blank"}
