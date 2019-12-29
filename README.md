@@ -2,6 +2,9 @@
 
 ## 2019
 
+### How to Send WhatsApp Messages from Google Sheets with JavaScript and Node.js
+[more...](https://www.twilio.com/blog/send-whatsapp-messages-from-google-sheets-javascript-node-js)
+
 ### Engineering for Peace of Mind with Twilio SMS and the AWS IoT Button
 [more...](https://www.twilio.com/blog/engineering-peace-of-mind-twilio-aws-iot-button)
 
