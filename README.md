@@ -1,5 +1,13 @@
 # Blog written by Alex Baban
 
+## 2020
+
+### Sending SMS Messages with Dart and Twilio Programmable SMS
+[more...](https://www.twilio.com/blog/sending-sms-messages-dart-twilio-programmable-sms)
+
+### Using the Twilio Node.js Helper Library with AWS Lambda Layers
+[more...](https://www.twilio.com/blog/aws-lambda-layers-node-js-twilio-sms)
+
 ## 2019
 
 ### How to Send WhatsApp Messages from Google Sheets with JavaScript and Node.js
